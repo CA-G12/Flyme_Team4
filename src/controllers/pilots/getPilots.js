@@ -1,4 +1,4 @@
-const getAllPilots = require("../database/queries/getAllPilots");
+const getAllPilots = require("../../database/queries/pilots/getAllPilots");
 
 const getPilots = (req, res) => {
     getAllPilots()

@@ -1,4 +1,4 @@
-const createPilot = require("../database/queries/createPilot")
+const createPilot = require("../../database/queries/pilots/createPilot")
 
 const postPilot = (req, res) => {
     const {name, image_url, experience} = req.body
