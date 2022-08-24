@@ -1,7 +1,9 @@
 let pilotsBtn = document.querySelector('#tools .pilotsBtn a');
 let flightsBtn = document.querySelector('#tools .flightsBtn a');
+let addBtn = document.querySelector('#tools > div.user-tools > ul.main-menu > li:nth-child(3) > a');
 let pilotsContainer = document.querySelector('.pilotsContainer');
 let flightsContainer = document.querySelector('.flightsContainer');
+let addContainer = document.querySelector('.addPilot');
 let editPilotBtn = document.querySelector('.pilot-card .edit-btn');
 let editPilotSubmit = document.querySelector('body > div > div.pilotsContainer > div > form > button');
 let editFlightBtn = document.querySelector('.flight-card .edit-btn');
@@ -9,12 +11,21 @@ let editFlightSubmit = document.querySelector('body > div > div.flightsContainer
 pilotsBtn.addEventListener('click', (e) => {
     e.preventDefault();
     switchContent(flightsContainer, pilotsContainer)
+    switchContent(addContainer, pilotsContainer)
     clearActiveLi();
     e.target.parentNode.classList.add('active');
 })
 flightsBtn.addEventListener('click', (e) => {
     e.preventDefault();
     switchContent(pilotsContainer, flightsContainer);
+    switchContent(addContainer, flightsContainer);
+    clearActiveLi();
+    e.target.parentNode.classList.add('active');
+})
+addBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    switchContent(pilotsContainer, addContainer);
+    switchContent(flightsContainer, addContainer);
     clearActiveLi();
     e.target.parentNode.classList.add('active');
 })
@@ -114,84 +125,84 @@ function createNode(node, className) {
 
 
 fetch("/flights")
-  .then((data) => data.json())
-  .then((data) => generateFlightsCards(data))
-  .catch((err) => console.log("Error"));
+    .then((data) => data.json())
+    .then((data) => generateFlightsCards(data))
+    .catch((err) => console.log("Error"));
 
 function generateFlightsCards(data) {
-    let Pilotname='';
-  flightsContainer.textContent = "";
-  data.forEach((e) => {
-    console.log(e.date);
-    const flightCardDiv = document.createElement("div");
-    flightCardDiv.classList = "flight-card";
-    flightsContainer.appendChild(flightCardDiv);
+    let Pilotname = '';
+    flightsContainer.textContent = "";
+    data.forEach((e) => {
+        console.log(e.date);
+        const flightCardDiv = document.createElement("div");
+        flightCardDiv.classList = "flight-card";
+        flightsContainer.appendChild(flightCardDiv);
 
-    const content = document.createElement("div");
-    content.classList = "flight-card-content";
-    flightCardDiv.appendChild(content);
+        const content = document.createElement("div");
+        content.classList = "flight-card-content";
+        flightCardDiv.appendChild(content);
 
-    const imgDiv = document.createElement("div");
-    imgDiv.classList = "f_card_profile_img";
-    const image = document.createElement("img");
-    image.src =
-      "https://c8.alamy.com/zooms/9/d3f6ee44040c47ee8de1dcf15b114000/d4x48d.jpg";
-    imgDiv.appendChild(image);
-    content.appendChild(imgDiv);
+        const imgDiv = document.createElement("div");
+        imgDiv.classList = "f_card_profile_img";
+        const image = document.createElement("img");
+        image.src =
+            "https://c8.alamy.com/zooms/9/d3f6ee44040c47ee8de1dcf15b114000/d4x48d.jpg";
+        imgDiv.appendChild(image);
+        content.appendChild(imgDiv);
 
-    const detailsDiv = document.createElement("div");
-    detailsDiv.classList = "flight_details";
-    content.appendChild(detailsDiv);
+        const detailsDiv = document.createElement("div");
+        detailsDiv.classList = "flight_details";
+        content.appendChild(detailsDiv);
 
-    const flightName = document.createElement("p");
-    flightName.textContent = e.pilot_id;
-    detailsDiv.appendChild(flightName);
+        const flightName = document.createElement("p");
+        flightName.textContent = e.pilot_id;
+        detailsDiv.appendChild(flightName);
 
-    const date = document.createElement("h3");
-    date.textContent = e.date;
-    detailsDiv.appendChild(date);
+        const date = document.createElement("h3");
+        date.textContent = e.date;
+        detailsDiv.appendChild(date);
 
-    const time = document.createElement("p");
-    time.textContent = e.time;
-    detailsDiv.appendChild(time);
+        const time = document.createElement("p");
+        time.textContent = e.time;
+        detailsDiv.appendChild(time);
 
-    const directions = document.createElement("p");
-    directions.textContent = e.directions;
-    detailsDiv.appendChild(directions);
+        const directions = document.createElement("p");
+        directions.textContent = e.directions;
+        detailsDiv.appendChild(directions);
 
-    const iconsDiv = document.createElement("div");
-    iconsDiv.classList = "card_actions";
-    content.appendChild(iconsDiv);
+        const iconsDiv = document.createElement("div");
+        iconsDiv.classList = "card_actions";
+        content.appendChild(iconsDiv);
 
-    const editLink = document.createElement("a");
-    editLink.classList = "btn edit-btn";
-    iconsDiv.appendChild(editLink);
+        const editLink = document.createElement("a");
+        editLink.classList = "btn edit-btn";
+        iconsDiv.appendChild(editLink);
 
-    const editIcon = document.createElement("i");
-    editIcon.classList = "fa-solid fa-pen";
-    editLink.appendChild(editIcon);
+        const editIcon = document.createElement("i");
+        editIcon.classList = "fa-solid fa-pen";
+        editLink.appendChild(editIcon);
 
-    const deleteLink = document.createElement("a");
-    deleteLink.classList = "btn delete-btn";
-    deleteLink.href = `/flight/${e.id}`
-    iconsDiv.appendChild(deleteLink);
+        const deleteLink = document.createElement("a");
+        deleteLink.classList = "btn delete-btn";
+        deleteLink.href = `/flight/${e.id}`
+        iconsDiv.appendChild(deleteLink);
 
-    const deleteIcon = document.createElement("i");
-    deleteIcon.classList = "fa-solid fa-trash";
-    deleteLink.appendChild(deleteIcon);
+        const deleteIcon = document.createElement("i");
+        deleteIcon.classList = "fa-solid fa-trash";
+        deleteLink.appendChild(deleteIcon);
 
-    //create the form
-    const form = document.createElement("form");
-    form.action = "/flight";
-    form.method = "post";
-    form.classList = "update-flight";
-    //add eventListener to edit btn
-    editLink.addEventListener("click", (e) => {
-    //   e.preventDefault();
-      switchContent(content, form);
-    });
+        //create the form
+        const form = document.createElement("form");
+        form.action = "/flight";
+        form.method = "post";
+        form.classList = "update-flight";
+        //add eventListener to edit btn
+        editLink.addEventListener("click", (e) => {
+            //   e.preventDefault();
+            switchContent(content, form);
+        });
 
-    form.innerHTML += `<label for="">date
+        form.innerHTML += `<label for="">date
         <input type="date" name="date">
     </label>
     <label for="">ID
@@ -206,14 +217,14 @@ function generateFlightsCards(data) {
     <label for="">Pilot
         <input type="number" name="pilot_id" value="${e.pilot_id}">
     </label>`;
-    flightCardDiv.appendChild(form);
-    const updateBtn = document.createElement('button');
-    updateBtn.classList = 'btn';
-    updateBtn.textContent = 'Edit'
-    updateBtn.addEventListener('click', (e)=> {
-        // e.preventDefault();
-        switchContent(form, content)
-    })
-    form.appendChild(updateBtn);
-  });
+        flightCardDiv.appendChild(form);
+        const updateBtn = document.createElement('button');
+        updateBtn.classList = 'btn';
+        updateBtn.textContent = 'Edit'
+        updateBtn.addEventListener('click', (e) => {
+            // e.preventDefault();
+            switchContent(form, content)
+        })
+        form.appendChild(updateBtn);
+    });
 }

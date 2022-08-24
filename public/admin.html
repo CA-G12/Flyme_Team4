@@ -33,7 +33,7 @@
                     <a href=""><i class="fa-solid fa-plane"></i>Flights</a>
                 </li>
                 <li>
-                    <a href=""><i class="fa-solid fa-magnifying-glass"></i> Search</a>
+                    <a href=""><i class="fa-solid fa-magnifying-glass"></i> Add</a>
                 </li>
             </ul>
             <span class="divider"></span>
@@ -65,7 +65,8 @@
             <div class="pilot-card">
                 <div class="pilots-card-content">
                     <div class="pilot-img"></div>
-                    <div class="p_card_profile_img card_profile_img"><img src="https://source.unsplash.com/7Sz71zuuW4k" alt=""></div>
+                    <div class="p_card_profile_img card_profile_img"><img src="https://source.unsplash.com/7Sz71zuuW4k"
+                            alt=""></div>
                     <div class="pilot_details">
                         <h3>Gordon Ramsay</h3>
                         <p>Master Chef</p>
@@ -96,7 +97,8 @@
             <div class="flight-card">
                 <div class="flight-card-content">
                     <!-- <div class="flight-img"></div> -->
-                    <div class="f_card_profile_img"><img src="https://c8.alamy.com/zooms/9/d3f6ee44040c47ee8de1dcf15b114000/d4x48d.jpg" alt=""></div>
+                    <div class="f_card_profile_img"><img
+                            src="https://c8.alamy.com/zooms/9/d3f6ee44040c47ee8de1dcf15b114000/d4x48d.jpg" alt=""></div>
                     <div class="flight_details">
                         <h3>Date</h3>
                         <p>time</p>
@@ -127,6 +129,30 @@
                     <button class="btn">Edit</button>
                 </form>
             </div>
+        </div>
+        <div class="addPilot">
+            <div class="mcont">
+                <div class="cont">
+                    <h1>Add pilots</h1>
+                    <form action="/pilots" method="post">
+                        <label for="">Name<input type="text" name="name"></label>
+                        <label for="">Image<input type="url" name="image_url"></label>
+                        <label for="">Experience<input type="text" name="experience"></label>
+                        <button class="btn">submit</button>
+                    </form>
+                </div>
+                <div class="cont">
+                    <h1>Add flights</h1>
+                    <form action="/flights" method="post">
+                        <label for="">Date<input type="date" name="date"></label>
+                        <label for="">Time<input type="text" name="time"></label>
+                        <label for="">Directions<input type="text" name="directions"></label>
+                        <label for="">Pilot<input type="number" name="pilot_id"></label>
+                        <button class="btn">submit</button>
+                    </form>
+                </div>
+            </div>
+
         </div>
     </div>
     <script src="admin.js"></script>
