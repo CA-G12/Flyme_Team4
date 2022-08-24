@@ -15,7 +15,7 @@ CREATE TABLE flights(
     time VARCHAR(200) NOT NULL,
     directions VARCHAR(255) NOT NULL,
     pilot_id INTEGER NOT NULL,
-    FOREIGN KEY (pilot_id) REFERENCES pilots(id)
+    FOREIGN KEY (pilot_id) REFERENCES pilots(id) on delete CASCADE
 );
 
 
