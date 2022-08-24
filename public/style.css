@@ -4,6 +4,149 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  height: 100vh;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f1f1f1;
+  padding: 0 2rem;
+  height: 75px;
+  box-shadow: 0 4px 10px #222
+}
+
+header h1 {
+  color: #001d3d;
+  font-size: 1.5rem;
+}
+
+header div a {
+  list-style: none;
+  color: #001d3d;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
 
+#intro {
+  width: 100%;
+  height: 300px;
+  background-image: url('/img/wp5911082-minimalist-purple-wallpapers.jpg');
+  background-size: cover;
+  background-position: bottom;
+}
+
+#intro img {
+  width: 100%;
+  height: 25vh;
+}
+
+#pilots {
+  width: 95%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 2rem;
+  margin: 0 auto;
+}
+
+#flights {
+  width: 95%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 2rem;
+  margin: 0 auto;
+}
+
+#pilots h1 {
+  font-weight: 600;
+  margin: 1rem 2rem
+}
+
+#flights h1 {
+  font-weight: 600;
+  margin: 1rem 2rem
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  /* gap: 2.5rem; */
+  
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem 1rem;
+  border: #001d3d solid 1px;
+  width: calc(95% / 5);
+  background: #1a003f;
+  color: #eee;
+  gap: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px 0 rgb(2, 2, 2);
+
+margin:1rem 2rem;}
+
+.card img {
+  width: 60%;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 0 rgb(168, 168, 168);
+}
+
+.card a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #eee;
+  outline: 1.5px solid #eee;
+  width: 80%;
+  padding: 0.5rem 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  position: relative;
+}
+
+.card .details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.card .details h4 {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+.card .details p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* .card a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #eee;
+  z-index: 0;
+} */
