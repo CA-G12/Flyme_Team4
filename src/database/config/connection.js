@@ -2,19 +2,19 @@ const { Pool } = require('pg');
 
 require('dotenv').config();
 
-const { DB_URl } = process.env;
+const { DATABASE_URL } = process.env;
 const { NODE_ENV } = process.env;
 
 let dbUrl = '';
-if (!DB_URl) throw new Error('No database url');
+if (!DATABASE_URL) throw new Error('No database url');
 if (NODE_ENV === 'test') {
     dbUrl = '';
 }
 else if (NODE_ENV === 'production') {
-    dbUrl = '';
+    dbUrl = DATABASE_URL;
 }
 else if (NODE_ENV === 'development') {
-    dbUrl = DB_URl;
+    dbUrl = DATABASE_URL;
 }
 else {
     throw new Error('invalid database url');
