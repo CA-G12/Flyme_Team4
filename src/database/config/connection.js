@@ -11,7 +11,7 @@ if (NODE_ENV === 'test') {
     dbUrl = '';
 }
 else if (NODE_ENV === 'production') {
-    dbUrl = '';
+    dbUrl = DB_URl;
 }
 else if (NODE_ENV === 'development') {
     dbUrl = DB_URl;
