@@ -9,9 +9,11 @@ const updatingFData = require('../controllers/flights/upadatingFlightData');
 const getFlights = require('../controllers/flights/getFlights');
 const postFlight = require('../controllers/flights/postFlight');
 const removeFlight = require('../controllers/flights/deleteFlight');
-
+const { join } = require('path')
 const router = require('express').Router();
-
+router.get('/admin', (req, res) => {
+    res.sendFile(join(__dirname, '..', '..', 'public', 'admin.html'));
+})
 router.get('/pilots', getPilots);
 router.post('/pilots', postPilot);
 router.get('/pilot/:id', removePilot);

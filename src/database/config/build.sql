@@ -26,9 +26,7 @@ CREATE TABLE flight_attendants(
     FOREIGN KEY (flight_id) REFERENCES flights(id)
 );
 
-INSERT INTO pilots(name, experience) VALUES 
-('Alex', 'lorem ipsum'),
-('Jhon', 'lorem');
+INSERT INTO pilots(name, experience) VALUES ('Alex', 'lorem ipsum'),('Jhon', 'lorem');
 
 
 COMMIT;
