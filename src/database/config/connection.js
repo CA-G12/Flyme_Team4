@@ -21,7 +21,7 @@ else {
 }
 const connection = new Pool({
     connectionString: dbUrl,
-    ssl: new URL(dbUrl).hostname === 'localhost' ? false : true
+    ssl: NODE_ENV === 'production' ? { rejectUnauthorized: false, } : false,
 });
 
 module.exports = connection;
