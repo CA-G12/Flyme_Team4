@@ -233,3 +233,16 @@ function generateFlightsCards(data) {
         form.appendChild(updateBtn);
     });
 }
+
+fetch('/pilots')
+    .then(res => res.json())
+    .then(data => generatePilotSelector(data))
+let selector = document.querySelector('#selctor');
+console.log(selector);
+function generatePilotSelector(data) {
+    data.forEach(element => {
+        selector.innerHTML += `
+    <option value="${element.id}">${element.name}</option>
+    `
+    });
+}
