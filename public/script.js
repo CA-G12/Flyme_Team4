@@ -57,7 +57,7 @@ function fetchFlightsCards(data) {
     card.appendChild(detailsDiv);
 
     const flightName = document.createElement("h4");
-    flightName.textContent = data[i]["pilot_id"];
+    flightName.textContent = data[i]["name"];
     detailsDiv.appendChild(flightName);
 
     const date = document.createElement("p");

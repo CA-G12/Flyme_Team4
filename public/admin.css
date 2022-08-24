@@ -315,8 +315,8 @@ span.divider {
 }
 
 .mainContainer {
-    padding: 40px 280px;
-    padding-top: 40px;
+    width: 100%;
+    padding: 40px 180px 40px 280px;
     text-align: center;
 }
 
@@ -331,6 +331,15 @@ span.divider {
     color: #868d9b;
 }
 .pilotsContainer,.flightsContainer{
+    display: flex;
+    justify-content: flex-start;
+    gap: 3rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.flightsContainer{
+    width: 100%;
+    flex-direction: row;
     display: flex;
     justify-content: flex-start;
     gap: 3rem;

@@ -111,8 +111,10 @@ header div a {
 margin:1rem 2rem;}
 
 .card img {
-  width: 60%;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
+  object-fit: cover;
   box-shadow: 0 0 10px 0 rgb(168, 168, 168);
 }
 

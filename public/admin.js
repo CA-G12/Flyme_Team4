@@ -40,7 +40,12 @@ editFlightSubmit.addEventListener('click', (e) => {
 })
 function switchContent(hide, show) {
     hide.style.display = 'none';
-    show.style.display = 'block';
+    if (show.className === 'update-pilot' ||show.className === 'update-flight') {
+        show.style.display = 'block';
+    }
+    else {
+        show.style.display = 'flex';
+    }
 }
 function clearActiveLi() {
     document.querySelectorAll('aside ul li').forEach(element => {
@@ -155,7 +160,7 @@ function generateFlightsCards(data) {
         content.appendChild(detailsDiv);
 
         const flightName = document.createElement("p");
-        flightName.textContent = e.pilot_id;
+        flightName.textContent = e.name;
         detailsDiv.appendChild(flightName);
 
         const date = document.createElement("h3");
