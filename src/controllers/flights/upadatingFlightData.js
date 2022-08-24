@@ -2,7 +2,7 @@ const updateFlightData = require('../../database/queries/flights/updateFlightDat
 const updatingData = (req, res) => {
     const { date, time, directions, pilot_id, id } = req.body;
     updateFlightData({ date, time, directions, pilot_id, id })
-        .then(data => res.redirect('/flights'))
+        .then(data => res.redirect('/admin'))
         .catch(err => res.json({ message: 'Error!' }))
 }
 
