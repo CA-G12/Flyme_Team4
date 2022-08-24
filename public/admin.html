@@ -1,14 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
     <title>Admin panel</title>
 </head>
+
 <body>
-    <script src="./script.js"></script>
+    <header>
+        <div class="container">
+            <div class="logo">FLYME</div>
+            <div class="menu">
+                <ul>
+                    <li class="home"><a href="">Home</a></li>
+                </ul>
+            </div>
+            <i class="fa-solid fa-bell" id="alerts"></i>
+        </div>
+    </header>
+    <aside id="tools">
+        <div class="user-tools">
+            <span id="menuText">MENU</span>
+            <ul class="main-menu">
+                <li class="active pilotsBtn">
+                    <a href=""><i class="fa-solid fa-user-tie"></i>Pilots</a>
+                </li>
+                <li class="flightsBtn">
+                    <a href=""><i class="fa-solid fa-plane"></i>Flights</a>
+                </li>
+                <li>
+                    <a href=""><i class="fa-solid fa-magnifying-glass"></i> Search</a>
+                </li>
+            </ul>
+            <span class="divider"></span>
+            <ul class="settings-menu">
+                <li>
+                    <a href=""><i class="fa-solid fa-gear"></i> Settings</a>
+                </li>
+                <li>
+                    <a href=""><i class="fa-solid fa-cloud"></i> Help</a>
+                </li>
+                <li>
+                    <a href=""><i class="fa-solid fa-arrow-right-from-bracket"></i>Exit</a>
+                </li>
+            </ul>
+        </div>
+        <div class="userInfo">
+            <div class="user-avatar">
+                <img src="https://mpng.subpng.com/20180523/tha/kisspng-businessperson-computer-icons-avatar-clip-art-lattice-5b0508dc6a3a10.0013931115270566044351.jpg"
+                    alt="" />
+            </div>
+            <div class="userText">
+                <p class="nameText">Jon Dam</p>
+                <p class="emailText">gg@email.com</p>
+            </div>
+        </div>
+    </aside>
+    <div class="mainContainer">
+        <div class="pilotsContainer">
+            <div class="pilot-card">
+                <div class="pilots-card-content">
+                    <div class="pilot-img"></div>
+                    <div class="p_card_profile_img card_profile_img"><img src="https://source.unsplash.com/7Sz71zuuW4k" alt=""></div>
+                    <div class="pilot_details">
+                        <h3>Gordon Ramsay</h3>
+                        <p>Master Chef</p>
+                    </div>
+                    <div class="card_actions">
+                        <a href="" class="btn edit-btn"><i class="fa-solid fa-pen"></i></a>
+                        <a href="" class="btn delete-btn"><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                </div>
+                <form action="/" method="post" class="update-pilot">
+                    <label for="">Name
+                        <input type="text" name="name">
+                    </label>
+                    <label for="">ID
+                        <input type="number" name="id">
+                    </label>
+                    <label for="">Image
+                        <input type="url" name="image_url">
+                    </label>
+                    <label for="">Experience
+                        <textarea name="experience" cols="18" rows="5"></textarea>
+                    </label>
+                    <button class="btn">Edit</button>
+                </form>
+            </div>
+        </div>
+        <div class="flightsContainer" style="display:none;">
+            <div class="flight-card">
+                <div class="flight-card-content">
+                    <!-- <div class="flight-img"></div> -->
+                    <div class="f_card_profile_img"><img src="https://c8.alamy.com/zooms/9/d3f6ee44040c47ee8de1dcf15b114000/d4x48d.jpg" alt=""></div>
+                    <div class="flight_details">
+                        <h3>Date</h3>
+                        <p>time</p>
+                        <p>directions</p>
+                        <p>pilot</p>
+                    </div>
+                    <div class="card_actions">
+                        <a href="" class="btn edit-btn"><i class="fa-solid fa-pen"></i></a>
+                        <a href="" class="btn delete-btn"><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                </div>
+                <form action="/" method="post" class="update-flight">
+                    <label for="">date
+                        <input type="date" name="date">
+                    </label>
+                    <label for="">ID
+                        <input type="number" name="id">
+                    </label>
+                    <label for="">time
+                        <input type="text" name="time">
+                    </label>
+                    <label for="">directions
+                        <input type="text" name="directions">
+                    </label>
+                    <label for="">Pilot
+                        <input type="number" name="pilot_id">
+                    </label>
+                    <button class="btn">Edit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="admin.js"></script>
 </body>
+
 </html>
