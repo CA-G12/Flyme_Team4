@@ -44,10 +44,8 @@ fetch("/flights")
   .then((data) => fetchFlightsCards(data));
 
 function fetchFlightsCards(data) {
-    console.log(data);
   flightsContainer.textContent = "";
   for (let i = 0; i < data.length; i++) {
-    console.log(data[i]["directions"]);
     const card = document.createElement("div");
     card.classList = "card";
     flightsContainer.appendChild(card);
